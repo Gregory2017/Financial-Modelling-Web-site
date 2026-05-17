@@ -1,0 +1,8 @@
+{
+  "name": "Financial Modelling",
+  "description": "A stylish crypto trading blog and technical analysis portal.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
