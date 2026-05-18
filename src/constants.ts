@@ -69,6 +69,23 @@ Consequently, we can see a strong bearish trend for this asset in combination wi
     maxPrice: "247.64 USD",
     currentPrice: "85.82 USD",
     volatility: "111.70%"
+  },
+  {
+    id: "ton-usd-2026-04-30",
+    title: "Technical Indicators TON-USD",
+    date: "2026-04-30",
+    asset: "TON-USD",
+    summary: " Depending on the macro and micro aspects of the cryptocurrency market, you may consider adjusting your portfolio with this product.",
+    content: `To begin with, TON is a blockchain technology designed for high throughput and scalability within a decentralized ecosystem. The network's high capacity and low transaction fees are key factors that contribute to its overall investment attractiveness.  
+However, technical indicators suggest that despite recent price gains, a broader bearish trend has dominated the market over the past year. The asset experienced a significant downturn from its yearly high of 3.60 USD, eventually bottoming out at 1.12 USD. As of May 5, 2026, the SMA 50 is recorded at 1.32 USD and the SMA 200 at 1.56 USD. Because the current price of 1.89 USD is trading above both of these moving averages, we are seeing a notable short-term recovery. Furthermore, the MACD indicator stands at 0.07, suggesting that positive momentum is currently accelerating in the short run.  
+Despite this upward movement, the RSI oscillator has reached shocking figure of 85.08. This indicates that the financial product is heavily overbought, which serves as a clear warning that the current rally may be overextended and a technical correction could be imminent. Consequently, this asset should be handled with caution. Annualized volatility reaches approximately 48%, indicating the need for careful managment of large investments in this asset.
+Over the last 360 days, the minimum price of TON was 1.12 USD, the maximum was 3.60 USD and the mean price sat at 3.34 USD. These figures highlight that although the current price of 1.89 USD is a strong bounce from the yearly low, the asset has still lost approximately 48 percent of its value compared to its yearly peak.  
+In conclusion, we can observe a conflict between a strong short-term bullish recovery and a long-term bearish trend.
+Considering technical indicators, of course we can see a plummet of price between 06.10.2025 and 30.04.2026, which is a crystal clear Bearish Trend. But in recent weeks we observe positive dynamics in price correction process. In particular, on 06.04.2026 the price; 68853.66 USD has crossed upwards SMA50;68647.56 USD and accelerates up till now, which is a Golden Crossing in action. Since 17.11.2025 SMA200 has been moving above SMA50 and regular price, at the moment SMA200 is 84228,58 USD.`,
+    minPrice: "1.873 USD",
+    maxPrice: "1.993 USD",
+    currentPrice: "1.95 USD",
+    volatility: "35.49%"
   }
 ];
 
