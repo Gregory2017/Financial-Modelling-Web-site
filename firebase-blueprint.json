@@ -1,0 +1,63 @@
+{
+  "entities": {
+    "UserCryptoEntry": {
+      "title": "UserCryptoEntry",
+      "description": "A single technical analysis entry in the user's crypto diary.",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "description": "The UID of the user who owns this entry"
+        },
+        "date": {
+          "type": "string",
+          "description": "The date of the technical analysis"
+        },
+        "cryptoName": {
+          "type": "string",
+          "description": "Crypto symbol or name (e.g., TON-USD)"
+        },
+        "closePrice": {
+          "type": "string",
+          "description": "Closing price"
+        },
+        "ema50": {
+          "type": "string",
+          "description": "50-period Exponential Moving Average"
+        },
+        "ema200": {
+          "type": "string",
+          "description": "200-period Exponential Moving Average"
+        },
+        "sma50": {
+          "type": "string",
+          "description": "50-period Simple Moving Average"
+        },
+        "sma200": {
+          "type": "string",
+          "description": "200-period Simple Moving Average"
+        },
+        "macd": {
+          "type": "string",
+          "description": "MACD value"
+        },
+        "rsi": {
+          "type": "string",
+          "description": "Relative Strength Index value"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "Creation timestamp"
+        }
+      },
+      "required": ["userId", "date", "cryptoName", "closePrice"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/entries/{entryId}": {
+      "schema": "UserCryptoEntry",
+      "description": "Crypto diary entries representing individual technical analysis metrics saved by authenticated users"
+    }
+  }
+}

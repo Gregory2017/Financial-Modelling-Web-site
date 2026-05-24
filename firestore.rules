@@ -1,0 +1,72 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Global Safety Net (Default Deny Catch-all)
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Primitive Helpers
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isValidId(id) {
+      return id is string && id.size() <= 128 && id.matches('^[a-zA-Z0-9_\\-]+$');
+    }
+
+    function incoming() {
+      return request.resource.data;
+    }
+
+    function existing() {
+      return resource.data;
+    }
+
+    function isValidUserCryptoEntry(data) {
+      return data.userId is string 
+        && data.userId.size() <= 128
+        && data.userId == request.auth.uid
+        && data.date is string 
+        && data.date.size() <= 16
+        && data.cryptoName is string 
+        && data.cryptoName.size() <= 32
+        && data.closePrice is string 
+        && data.closePrice.size() <= 32
+        && (!('ema50' in data) || (data.ema50 is string && data.ema50.size() <= 32))
+        && (!('ema200' in data) || (data.ema200 is string && data.ema200.size() <= 32))
+        && (!('sma50' in data) || (data.sma50 is string && data.sma50.size() <= 32))
+        && (!('sma200' in data) || (data.sma200 is string && data.sma200.size() <= 32))
+        && (!('macd' in data) || (data.macd is string && data.macd.size() <= 32))
+        && (!('rsi' in data) || (data.rsi is string && data.rsi.size() <= 32))
+        && data.keys().hasAll(['userId', 'date', 'cryptoName', 'closePrice'])
+        && data.keys().size() <= 12;
+    }
+
+    // Secure user paths
+    match /users/{userId} {
+      allow get: if isSignedIn() && request.auth.uid == userId && isValidId(userId);
+      allow create, update: if isSignedIn() && request.auth.uid == userId && isValidId(userId);
+
+      match /entries/{entryId} {
+        allow get: if isSignedIn() && request.auth.uid == userId && isValidId(entryId);
+        allow list: if isSignedIn() && request.auth.uid == userId;
+        allow create: if isSignedIn() 
+          && request.auth.uid == userId 
+          && isValidId(entryId)
+          && isValidUserCryptoEntry(incoming())
+          && incoming().createdAt == request.time;
+        allow update: if isSignedIn() 
+          && request.auth.uid == userId 
+          && isValidId(entryId)
+          && isValidUserCryptoEntry(incoming())
+          && incoming().userId == existing().userId
+          && incoming().createdAt == existing().createdAt
+          && incoming().updatedAt == request.time;
+        allow delete: if isSignedIn() 
+          && request.auth.uid == userId 
+          && isValidId(entryId);
+      }
+    }
+  }
+}

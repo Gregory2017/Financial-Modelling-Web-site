@@ -124,5 +124,10 @@ export const PAGES_CONTENT = {
     title: "Enterprise Solutions",
     subtitle: "Custom Analytics for Scale",
     content: "We provide bespoke analytical frameworks for hedge funds, family offices, and crypto-native treasuries. This includes custom risk dashboards, private API instances, and white-label versions of our technical analysis engine."
+  },
+  terms: {
+    title: "Terms & Conditions",
+    subtitle: "Stockholm Financial Analysis Group Disclaimer",
+    content: "By using our digital quantitative daybook dashboard, technical reports, and analytical engines, you unconditionally agree to this licensing agreement. All calculated signals, technical indices, and manually inputted values—including Moving Averages, RSI, MACD oscillators, and the manual Hill α index—are provided exclusively for academic research, volatility testing, and private diary keeping. Past performance is no guarantee of future outcomes. Speculating in digital assets represents high financial danger, with annual volatility rates occasionally exceeding 110%; assets are heavily prone to heavy-tailed mathematical losses. This system does not offer investment advice or commercial brokerage services, and our Stockholm Research Desk maintains zero liability for speculative or trade-related outcomes under Swedish Jurisdictional Code."
   }
 };
